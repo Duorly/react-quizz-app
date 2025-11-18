@@ -1,73 +1,47 @@
-# React + TypeScript + Vite
+# Projet – Application de Quiz Interactif
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Description
 
-Currently, two official plugins are available:
+Ce projet est une **application de quiz interactive** développée dans le cadre de notre **Master**.  
+L’objectif est de proposer une expérience ludique et pédagogique autour de différents **thèmes** et **niveaux de difficulté**.  
+Chaque quiz permettra à l’utilisateur de tester ses connaissances tout en suivant sa progression et son score.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+L’application repose sur **React + TypeScript** et est construite de manière modulaire pour faciliter l’ajout de nouveaux quiz, thèmes et fonctionnalités.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Travail d’équipe
 
-## Expanding the ESLint configuration
+Au-delà du développement technique, ce projet a pour but de renforcer notre **capacité à travailler en équipe** dans un environnement de développement collaboratif.  
+Nous avons mis en place un **workflow Git professionnel**, avec des **branches par fonctionnalité**, des **pull requests**, et des **revues de code** afin d’assurer la qualité et la cohérence du projet.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Chaque membre de l’équipe a pris en charge une partie spécifique du développement :
+- **Logique du quiz** : étapes, progression, score  
+- **Affichage des questions** et navigation utilisateur  
+- **Écran de résultats** et calcul final  
+- **Design global et interactions visuelles**
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Cette organisation nous a permis d’appliquer concrètement les principes de **travail collaboratif**, de **communication efficace** et de **gestion de version structurée**.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Objectifs pédagogiques
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- Approfondir notre maîtrise de **React** et des **Hooks** (`useState`, `useEffect`, `useContext`, `useMemo`)
+- Apprendre à **gérer un projet en équipe** avec GitHub (issues, pull requests, code reviews)
+- Concevoir une application **documentée, responsive et maintenable**
+- Travailler sur la **conception visuelle** (wireframes, zoning, maquettes)
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Résultat attendu
+
+Une application complète, claire et agréable à utiliser :
+- Plusieurs quiz classés par thème et difficulté  
+- Un mode de jeu hardcore où une seule erreur vous sera fatale 
+- Interface fluide et responsive  
+- Code propre, structuré et bien documenté  
+
+---
+
+> *Ce projet nous a permis de combiner technique, design et collaboration, dans une logique proche d’un vrai environnement professionnel.*

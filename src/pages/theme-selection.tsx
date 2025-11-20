@@ -67,12 +67,12 @@ const ThemeSelection: React.FC = () => {
            <BackButton />
 
             <div className="relative z-10 w-full h-full flex items-center justify-center">
-                <div className="grid grid-cols-3 gap-12 px-24 mt-20">
+                <div className="grid grid-cols-3 gap-20 px-20 mt-30">
                     {categories.map((c) => (
                         <button
                             key={c.id}
                             onClick={() => handleSelectTheme(c.id)}
-                            className="relative w-80 h-80 rounded overflow-hidden shadow-lg hover:scale-105 transition-transform shadow-gray-800 opacity-90 hover:opacity-100"
+                            className="relative w-95 h-95 rounded overflow-hidden shadow-lg hover:scale-105 transition-transform shadow-gray-800 opacity-90 hover:opacity-100"
                         >
                             <img
                                 src={c.image}

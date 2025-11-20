@@ -87,7 +87,7 @@ const ThemeSelection: React.FC = () => {
                                     className="text-white text-4xl drop-shadow-lg"
                                     style={{
                                         fontFamily: "'Jomhuria', cursive",
-                                        fontSize: "60px",
+                                        fontSize: "70px",
                                         lineHeight: "40px",
                                         letterSpacing: "4px",
                                         textShadow: "4px 4px 8px rgba(0,0,0,0.9)"

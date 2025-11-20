@@ -1,7 +1,10 @@
 import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import backgroundVideo from "../assets/Background_animated.mp4";
 
 const Homepage: React.FC = () => {
+  const navigate = useNavigate();
+
   useEffect(() => {
     const link = document.createElement("link");
     link.href = "https://fonts.googleapis.com/css2?family=Jomhuria&display=swap";
@@ -10,7 +13,7 @@ const Homepage: React.FC = () => {
   }, []);
 
   const handleClick = () => {
-    window.location.href = "/quiz-selection";
+    navigate("/quizz-selection");
   };
 
   return (
@@ -64,9 +67,9 @@ const Homepage: React.FC = () => {
             }}
             className="text-white drop-shadow-xl pulse-letters"
           >
-            CLIQUEZ
+            CLIQUEZ POUR
             <br />
-            POUR COMMENCER !
+            COMMENCER !
           </h1>
         </div>
       </div>

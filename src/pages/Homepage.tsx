@@ -50,7 +50,7 @@ const Homepage: React.FC = () => {
           className="absolute inset-0 w-full h-full object-cover"
         />
 
-        <div className="absolute inset-0 bg-black/20" />
+        <div className="absolute inset-0" />
 
         <div className="relative z-10 w-full h-full flex flex-col items-center justify-center text-center">
           <img

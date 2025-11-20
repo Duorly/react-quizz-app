@@ -24,7 +24,7 @@ const QuizzSelection: React.FC = () => {
         playsInline
         className="absolute inset-0 w-full h-full object-cover"
       />
-      <div className="absolute inset-0 bg-black/30" />
+      <div className="absolute inset-0" />
 
       {/* Title at the top */}
       <div className="absolute top-40 left-0 right-0 flex justify-center z-10">

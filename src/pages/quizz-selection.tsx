@@ -44,11 +44,11 @@ const QuizzSelection: React.FC = () => {
       <div className="relative z-10 w-full h-full flex items-center justify-center">
         <div className="flex flex-row gap-100 mt-20">
           <button
-            onClick={() => navigate("")}
-            className="px-38 py-6 bg-gray-200 text-black text-4xl font-bold rounded shadow-lg hover:scale-105 transition-transform tracking-[2px]"
+            onClick={() => navigate("/theme-selection")}
+            className="px-38 py-6 bg-gray-200 text-black text-4xl rounded shadow-lg hover:scale-105 transition-transform"
             style={{
               fontFamily: "'Jomhuria', cursive",
-              fontSize: "70px",
+              fontSize: "80px",
             }}
           >
             CLASSIQUE
@@ -56,10 +56,10 @@ const QuizzSelection: React.FC = () => {
 
           <button
             onClick={() => navigate("")}
-            className="px-38 py-6 bg-black text-white text-4xl font-bold rounded shadow-lg hover:scale-105 transition-transform tracking-[2px]"
+            className="px-38 py-6 bg-black text-white text-4xl rounded shadow-lg hover:scale-105 transition-transform"
             style={{
               fontFamily: "'Jomhuria', cursive",
-              fontSize: "70px",
+              fontSize: "80px",
             }}
           >
             MORT SUBITE

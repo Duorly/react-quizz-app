@@ -4,26 +4,27 @@ import backgroundVideo from "../assets/Background_animated.mp4";
 import BackButton from "../components/BackButton";
 
 const difficulties = [
-    { level: "easy", label: "EASY", color: "#9CFF7E" },
-    { level: "medium", label: "MEDIUM", color: "#FFBD7B" },
-    { level: "hard", label: "EXPERT", color: "#DB5D5D" },
+  { level: "easy", label: "EASY", color: "#9CFF7E" },
+  { level: "medium", label: "MEDIUM", color: "#FFBD7B" },
+  { level: "hard", label: "EXPERT", color: "#DB5D5D" },
 ];
 
 const DifficultySelection: React.FC = () => {
-    const navigate = useNavigate();
-    const [params] = useSearchParams();
-    const theme = params.get("theme");
+  const navigate = useNavigate();
+  const [params] = useSearchParams();
+  const theme = params.get("theme");
 
-    useEffect(() => {
-        const link = document.createElement("link");
-        link.href = "https://fonts.googleapis.com/css2?family=Jomhuria&display=swap";
-        link.rel = "stylesheet";
-        document.head.appendChild(link);
-    }, []);
+  useEffect(() => {
+    const link = document.createElement("link");
+    link.href = "https://fonts.googleapis.com/css2?family=Jomhuria&display=swap";
+    link.rel = "stylesheet";
+    document.head.appendChild(link);
+  }, []);
 
     const handleDifficulty = (level: string) => {
-        // Redirige vers la page de countdown avant d'aller au quiz
-        navigate(`/countdown?theme=${theme}&difficulty=${level}&seconds=3`);
+        const queryTheme = theme && theme !== "null" ? `theme=${theme}&` : "";
+        navigate(`/countdown?${queryTheme}difficulty=${level}&seconds=3`);
+
     };
 
     return (

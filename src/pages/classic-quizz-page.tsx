@@ -29,7 +29,6 @@ const CATEGORY_LABELS: Record<string, string> = {
     "11": "FILMS",
     "21": "SPORTS",
     "17": "SCIENCES & NATURE",
-    "mix": "MIX"
 };
 
 const ClassicQuizPage: React.FC = () => {
@@ -70,10 +69,10 @@ const ClassicQuizPage: React.FC = () => {
         const fetchFromApi = async (useDifficulty: boolean) => {
             let url = `https://opentdb.com/api.php?amount=${TOTAL_QUESTIONS}&type=multiple`;
 
-            // On ajoute le thème si ce n'est pas MIX
-            if (theme && theme !== "mix") {
-                url += `&category=${theme}`;
-            }
+            const apiCategory = theme && theme !== "null" ? `&category=${theme}` : "";
+
+            url += apiCategory
+
 
             // On ajoute la difficulté SEULEMENT si useDifficulty est true
             if (useDifficulty) {

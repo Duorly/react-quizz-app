@@ -30,10 +30,15 @@ const QuizzAnswers: React.FC<AnswersProps> = ({
             key={index}
             disabled={!!selected}
             onClick={() => onSelect(ans)}
-            className={`${bg} py-6 rounded-xl shadow-lg transition-transform hover:scale-105`}
+            className={`${bg} rounded-xl shadow-lg transition-transform hover:scale-105
+                        flex items-center justify-center text-center px-6`}
             style={{
               fontFamily: "'Jomhuria', cursive",
-              fontSize: "85px",
+              fontSize: "60px",
+              height: "200px",
+              lineHeight: "1.1",
+              wordBreak: "break-word",
+              padding: "20px",
             }}
           >
             {ans}

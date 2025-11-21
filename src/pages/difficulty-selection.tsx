@@ -22,7 +22,8 @@ const DifficultySelection: React.FC = () => {
   }, []);
 
   const handleDifficulty = (level: string) => {
-    navigate(`/classic-quizz?theme=${theme}&difficulty=${level}`);
+    // Redirige vers la page de countdown avant d'aller au quiz
+    navigate(`/countdown?theme=${theme}&difficulty=${level}&seconds=3`);
   };
 
   return (

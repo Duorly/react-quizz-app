@@ -7,6 +7,8 @@ import ClassicQuizzResults from "../pages/results-classic-quizz";
 import ResultsSuddenDeath from "../pages/results-sudden-death";
 import SuddenDeath from "../pages/sudden-death";
 import ThemeSelection from "../pages/theme-selection";
+import ClassicQuizzPage from "../pages/classic-quizz-page";
+import CountdownPage from "../pages/CountdownPage";
 
 export default function Router() {
   return (
@@ -20,6 +22,8 @@ export default function Router() {
         <Route path="/results-sudden-death" element={<ResultsSuddenDeath />} />
         <Route path="/classic-quizz" element={<ClassicQuizzPage />} />
         <Route path="/results-classic" element={<ClassicQuizzResults />} />
+        <Route path="/countdown" element={<CountdownPage />} />
+
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>

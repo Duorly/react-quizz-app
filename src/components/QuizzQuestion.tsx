@@ -6,23 +6,13 @@ interface QuizzQuestionProps {
 
 const QuizzQuestion: React.FC<QuizzQuestionProps> = ({ text }) => {
   return (
-    <div
-      className="relative z-10 mt-16 text-center max-w-4xl mx-auto flex items-center justify-center px-6"
-      style={{
-        height: "220px", // hauteur fixe = 2 lignes
-      }}
-    >
+    <div className="relative z-10 mt-12 text-center max-w-4xl">
       <p
-        className="text-white drop-shadow-lg"
+        className="text-white drop-shadow-lg leading-snug"
         style={{
           fontFamily: "'Jomhuria', cursive",
-          fontSize: "85px",
-          lineHeight: "75px",
-          display: "inline-block",
-          maxHeight: "150px",
-          overflow: "hidden",
-          textOverflow: "ellipsis",
-          wordBreak: "break-word",
+          fontSize: "75px",
+          lineHeight: "65px",
         }}
       >
         {text}

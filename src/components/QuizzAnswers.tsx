@@ -14,7 +14,7 @@ const QuizzAnswers: React.FC<AnswersProps> = ({
   onSelect,
 }) => {
   return (
-    <div className="relative z-10 grid grid-cols-2 gap-30 mt-36 w-full max-w-[90rem] mx-auto">
+    <div className="relative z-10 grid grid-cols-2 gap-20 mt-16 w-full max-w-[90rem] mx-auto">
       {answers.map((ans, index) => {
         const isCorrect = ans === correct;
         const isSelected = ans === selected;
@@ -30,15 +30,10 @@ const QuizzAnswers: React.FC<AnswersProps> = ({
             key={index}
             disabled={!!selected}
             onClick={() => onSelect(ans)}
-            className={`${bg} rounded-xl shadow-lg transition-transform hover:scale-105
-                        flex items-center justify-center text-center px-6`}
+            className={`${bg} py-4 rounded-xl shadow-lg transition-transform hover:scale-105`}
             style={{
               fontFamily: "'Jomhuria', cursive",
-              fontSize: "60px",
-              height: "200px",
-              lineHeight: "1.1",
-              wordBreak: "break-word",
-              padding: "20px",
+              fontSize: "45px",
             }}
           >
             {ans}

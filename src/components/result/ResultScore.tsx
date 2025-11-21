@@ -1,3 +1,5 @@
+import React from "react";
+
 interface Props {
   score: number;
   record: number;
@@ -7,10 +9,9 @@ interface Props {
 const ResultScore: React.FC<Props> = ({ score, record, message }) => (
   <div className="flex flex-col items-center">
     <p
-      className="mt-6 drop-shadow-xl"
+      className="drop-shadow-xl text-9xl leading-xl"
       style={{
         fontFamily: "'Jomhuria', cursive",
-        fontSize: "200px",
         color: "#FFA53A",
       }}
     >
@@ -18,20 +19,18 @@ const ResultScore: React.FC<Props> = ({ score, record, message }) => (
     </p>
 
     <p
-      className="text-white drop-shadow-lg mt-4"
+      className="text-white drop-shadow-lg mt-4 text-6xl"
       style={{
         fontFamily: "'Jomhuria', cursive",
-        fontSize: "65px",
       }}
     >
       Votre record actuel est de {record} points
     </p>
 
     <p
-      className="text-white drop-shadow-lg mt-4"
+      className="text-white drop-shadow-lg mt-4 text-5xl"
       style={{
         fontFamily: "'Jomhuria', cursive",
-        fontSize: "60px",
       }}
     >
       {message}

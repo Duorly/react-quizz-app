@@ -9,7 +9,7 @@ const ResultButtons: React.FC<Props> = ({ replayPath }) => {
   const navigate = useNavigate();
 
   return (
-    <div className="flex gap-28 mt-16">
+    <div className="flex gap-28 mt-6">
       <button
         onClick={() => navigate(replayPath)}
         className="flex items-center gap-4 px-14 py-6 bg-white text-black rounded-xl shadow-lg hover:scale-105 transition-transform"

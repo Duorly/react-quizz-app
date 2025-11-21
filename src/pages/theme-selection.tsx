@@ -5,7 +5,7 @@ import BackButton from "../components/BackButton";
 
 const categories = [
     {
-        id: 11, name: "CULTURE GENERALE", image: "/themes/cultureG.webp"
+        id: 9, name: "CULTURE GENERALE", image: "/themes/cultureG.webp"
     },
     {
         id: 12, name: "HISTOIRE", image: "/themes/histoire.webp"

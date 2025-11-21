@@ -24,6 +24,14 @@ interface ApiQuestion {
 const TOTAL_QUESTIONS = 10;
 const TOTAL_TIME = 10;
 
+const CATEGORY_LABELS: Record<string, string> = {
+  "9": "CULTURE GENERALE",
+  "23": "HISTOIRE",
+  "11": "FILMS",
+  "21": "SPORTS",
+  "17": "SCIENCES & NATURE",
+};
+
 const ClassicQuizPage: React.FC = () => {
   const navigate = useNavigate();
   const [params] = useSearchParams();
@@ -39,17 +47,6 @@ const ClassicQuizPage: React.FC = () => {
   const [timeLeft, setTimeLeft] = useState(TOTAL_TIME);
 
   const hasFetched = useRef(false);
-  const CATEGORY_LABELS: Record<string, string> = {
-  "9": "CULTURE GENERALE",
-  "23": "HISTOIRE",
-  "11": "FILMS",
-  "21": "SPORTS",
-  "17": "SCIENCES & NATURE",
-};
-
-const displayCategory = theme
-  ? CATEGORY_LABELS[theme] || currentQuestion.category
-  : "MIX";
 
   const loadQuestions = useCallback(async () => {
     if (hasFetched.current) return;
@@ -58,16 +55,18 @@ const displayCategory = theme
     setLoading(true);
 
     try {
+      const apiCategory = theme && theme !== "null" ? `&category=${theme}` : "";
+
       const url =
         `https://opentdb.com/api.php?amount=${TOTAL_QUESTIONS}` +
         `&difficulty=${difficulty}` +
-        (theme ? `&category=${theme}` : "") +
+        apiCategory +
         `&type=multiple`;
 
       const res = await fetch(url);
       const data = await res.json();
 
-      if (!data.results) {
+      if (!data.results || !data.results.length) {
         console.error("API response invalid", data);
         return;
       }
@@ -106,7 +105,7 @@ const displayCategory = theme
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [loading, currentIndex]);
+  }, [loading, currentIndex, questions]);
 
   const handleAnswer = (answer: string) => {
     const current = questions[currentIndex];
@@ -123,12 +122,16 @@ const displayCategory = theme
         setSelected(null);
         setTimeLeft(TOTAL_TIME);
       } else {
-        navigate(`/results-classic?score=${score}&total=${TOTAL_QUESTIONS}`);
+        navigate(`/results-classic?score=${score + (isCorrect ? 1 : 0)}&total=${TOTAL_QUESTIONS}`);
       }
     }, 900);
   };
 
   const currentQuestion = questions[currentIndex];
+
+  const displayCategory = theme && theme !== "null"
+    ? CATEGORY_LABELS[theme] || currentQuestion?.category
+    : "MIX";
 
   const answers = useMemo(() => {
     if (!currentQuestion) return [];

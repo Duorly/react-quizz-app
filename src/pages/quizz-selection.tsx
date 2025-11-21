@@ -55,7 +55,7 @@ const QuizzSelection: React.FC = () => {
           </button>
 
           <button
-            onClick={() => navigate("")}
+            onClick={() => navigate("/sudden-death")}
             className="px-38 py-6 bg-black text-white text-4xl rounded shadow-lg hover:scale-105 transition-transform"
             style={{
               fontFamily: "'Jomhuria', cursive",

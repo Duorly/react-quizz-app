@@ -1,9 +1,9 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import DifficultySelection from "../pages/difficulty-selection";
 import Homepage from "../pages/Homepage";
 import QuizzSelection from "../pages/quizz-selection";
+import SuddenDeath from "../pages/sudden-death";
 import ThemeSelection from "../pages/theme-selection";
-import DifficultySelection from "../pages/difficulty-selection";
-
 
 export default function Router() {
   return (
@@ -13,9 +13,8 @@ export default function Router() {
         <Route path="/quizz-selection" element={<QuizzSelection />} />
         <Route path="/theme-selection" element={<ThemeSelection />} />
         <Route path="/difficulty-selection" element={<DifficultySelection />} />
-
+        <Route path="/sudden-death" element={<SuddenDeath />} />
       </Routes>
     </BrowserRouter>
   );
 }
-

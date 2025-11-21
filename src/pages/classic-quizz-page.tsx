@@ -39,6 +39,17 @@ const ClassicQuizPage: React.FC = () => {
   const [timeLeft, setTimeLeft] = useState(TOTAL_TIME);
 
   const hasFetched = useRef(false);
+  const CATEGORY_LABELS: Record<string, string> = {
+  "9": "CULTURE GENERALE",
+  "23": "HISTOIRE",
+  "11": "FILMS",
+  "21": "SPORTS",
+  "17": "SCIENCES & NATURE",
+};
+
+const displayCategory = theme
+  ? CATEGORY_LABELS[theme] || currentQuestion.category
+  : "MIX";
 
   const loadQuestions = useCallback(async () => {
     if (hasFetched.current) return;
@@ -149,7 +160,7 @@ const ClassicQuizPage: React.FC = () => {
       <div className="absolute inset-0 bg-black/20" />
 
       <QuizzHeader
-        category={currentQuestion.category}
+        category={displayCategory}
         questionNumber={currentIndex + 1}
         timeLeft={timeLeft}
         totalTime={TOTAL_TIME}

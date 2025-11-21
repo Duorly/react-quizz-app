@@ -84,7 +84,7 @@ const SuddenDeathQuiz: React.FC = () => {
     const isCorrect = answer === question?.correct_answer;
     setTimeout(() => {
       if (!isCorrect) {
-        navigate(`/results?mode=sudden-death&score=${score}`);
+        navigate(`/results-sudden-death?score=${score}`);
       } else {
         setScore(score + 1);
       }

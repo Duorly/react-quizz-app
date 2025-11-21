@@ -58,7 +58,7 @@ const ResultsSuddenDeath: React.FC = () => {
 
         <ResultScore score={score} record={record} message={getMessage()} />
 
-        <ResultButtons />
+        <ResultButtons replayPath="/sudden-death" />
       </div>
     </div>
   );

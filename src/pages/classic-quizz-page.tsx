@@ -1,5 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import React, {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import backgroundVideo from "../assets/Background_animated.mp4";
 
@@ -106,7 +112,7 @@ const ClassicQuizPage: React.FC = () => {
         setSelected(null);
         setTimeLeft(TOTAL_TIME);
       } else {
-        navigate("/");
+        navigate(`/results-classic?score=${score}&total=${TOTAL_QUESTIONS}`);
       }
     }, 900);
   };
@@ -115,8 +121,10 @@ const ClassicQuizPage: React.FC = () => {
 
   const answers = useMemo(() => {
     if (!currentQuestion) return [];
-    return [currentQuestion.correct_answer, ...currentQuestion.incorrect_answers]
-      .sort(() => Math.random() - 0.5);
+    return [
+      currentQuestion.correct_answer,
+      ...currentQuestion.incorrect_answers,
+    ].sort(() => Math.random() - 0.5);
   }, [currentQuestion]);
 
   if (loading || !currentQuestion) {

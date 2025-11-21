@@ -15,7 +15,7 @@ const CountdownPage: React.FC = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Ajoute dynamiquement la police Jomhuria si elle n'est pas déjà présente
+
     if (!document.getElementById('jomhuria-font')) {
       const link = document.createElement('link');
       link.id = 'jomhuria-font';
@@ -28,7 +28,8 @@ const CountdownPage: React.FC = () => {
       if (mode === 'sudden-death') {
         navigate('/sudden-death');
       } else {
-        navigate(`/classic-quizz?theme=${theme || ''}&difficulty=${difficulty || ''}`);
+        const queryTheme = theme && theme !== "null" ? `theme=${theme}&` : "";
+        navigate(`/classic-quizz?${queryTheme}difficulty=${difficulty}`);
       }
       return;
     }
@@ -39,41 +40,43 @@ const CountdownPage: React.FC = () => {
   }, [timeLeft, navigate, theme, difficulty, mode]);
 
   return (
-      <div>
-        <video
-          src={backgroundVideo}
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-      <div style={{ display: 'flex',
+    <div>
+      <video
+        src={backgroundVideo}
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover"
+      />
+      <div style={{
+        display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
         height: '100vh',
         position: 'relative',
-        zIndex: 1 }}>
-            <div className="absolute top-40 left-0 right-0 flex justify-center z-10">
-                <h1
-                    style={{
-                        fontFamily: "'Jomhuria', cursive",
-                        fontSize: "140px",
-                        lineHeight: "70px",
-                    }}
-                    className="text-white drop-shadow-xl"
-                >
-                VOTRE QUIZZ VA DEBUTER ...
-                </h1>
-            </div>
+        zIndex: 1
+      }}>
+        <div className="absolute top-40 left-0 right-0 flex justify-center z-10">
+          <h1
+            style={{
+              fontFamily: "'Jomhuria', cursive",
+              fontSize: "140px",
+              lineHeight: "70px",
+            }}
+            className="text-white drop-shadow-xl"
+          >
+            VOTRE QUIZZ VA DEBUTER ...
+          </h1>
+        </div>
         <div style={{
           fontFamily: "'Jomhuria', cursive",
           fontSize: "153px",
           lineHeight: "99px",
           margin: '2rem',
-        }}          
-        className="text-white drop-shadow-xl">
+        }}
+          className="text-white drop-shadow-xl">
           {timeLeft}
         </div>
       </div>

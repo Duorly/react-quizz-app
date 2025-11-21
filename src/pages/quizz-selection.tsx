@@ -15,7 +15,6 @@ const QuizzSelection: React.FC = () => {
 
   return (
     <div className="w-screen h-screen relative">
-      {/* Background */}
       <video
         src={backgroundVideo}
         autoPlay
@@ -26,7 +25,6 @@ const QuizzSelection: React.FC = () => {
       />
       <div className="absolute inset-0" />
 
-      {/* Title at the top */}
       <div className="absolute top-40 left-0 right-0 flex justify-center z-10">
         <h1
           style={{
@@ -40,7 +38,6 @@ const QuizzSelection: React.FC = () => {
         </h1>
       </div>
 
-      {/* Buttons centered */}
       <div className="relative z-10 w-full h-full flex items-center justify-center">
         <div className="flex flex-row gap-100 mt-20">
           <button

@@ -6,75 +6,87 @@ import ResultButtons from "../components/result/ResultButtons";
 import ResultTitle from "../components/result/ResultTitle";
 
 const ClassicQuizzResults: React.FC = () => {
-  const [params] = useSearchParams();
+    const [params] = useSearchParams();
 
-  const score = Number(params.get("score")) || 0;
-  const total = Number(params.get("total")) || 20;
+    const score = Number(params.get("score")) || 0;
+    const total = Number(params.get("total")) || 20;
 
-  const getMessage = () => {
-    const ratio = score / total;
+    const getMessage = () => {
+        const ratio = score / total;
 
-    if (ratio === 1) return "Parfait, incroyable !";
-    if (ratio >= 0.8) return "Presque parfait, essayez encore !";
-    if (ratio >= 0.5) return "Pas mal, continuez !";
-    return "Essayez encore, vous pouvez le faire !";
-  };
+        if (ratio === 1) return "Parfait, incroyable !";
+        if (ratio >= 0.8) return "Presque parfait, essayez encore !";
+        if (ratio >= 0.5) return "Pas mal, continuez !";
+        return "Essayez encore, vous pouvez le faire !";
+    };
 
-  return (
-    <div className="w-screen h-screen relative flex flex-col items-center justify-center text-center">
-      {/* BACKGROUND VIDEO */}
-      <video
-        src={backgroundVideo}
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover"
-      />
-      <div className="absolute inset-0 bg-black/10" />
+    return (
+        // Container principal fixe (viewport height)
+        <div className="w-full h-[100dvh] relative bg-black overflow-hidden">
 
-      {/* CONTENT */}
-      <div className="relative z-10 flex flex-col items-center px-6 mt-10">
-        <ResultTitle text="Résultats" />
+            {/* BACKGROUND VIDEO (Reste fixe) */}
+            <video
+                src={backgroundVideo}
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="absolute inset-0 w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-black/20" />
 
-        {/* SUBTEXT */}
-        <p
-          className="text-white drop-shadow-lg mt-4"
-          style={{
-            fontFamily: "'Jomhuria', cursive",
-            fontSize: "70px",
-          }}
-        >
-          Vous avez obtenu le résultat de :
-        </p>
+            {/* ZONE DE CONTENU SCROLLABLE
+          C'est ici que la magie opère : si le contenu dépasse, on peut scroller
+      */}
+            <div className="absolute inset-0 z-10 overflow-y-auto overflow-x-hidden">
 
-        {/* SCORE */}
-        <p
-          className="mt-6 drop-shadow-xl"
-          style={{
-            fontFamily: "'Jomhuria', cursive",
-            fontSize: "200px",
-            color: "#9AF76A",
-          }}
-        >
-          {score}/{total}
-        </p>
+                {/* Flex container : min-h-full assure le centrage vertical si possible,
+            mais permet l'extension si nécessaire */}
+                <div className="min-h-full flex flex-col items-center justify-center py-10 px-4 text-center">
 
-        {/* MESSAGE */}
-        <p
-          className="text-white drop-shadow-lg mt-6"
-          style={{
-            fontFamily: "'Jomhuria', cursive",
-            fontSize: "60px",
-          }}
-        >
-          {getMessage()}
-        </p>
+                    <ResultTitle text="Résultats" />
 
-        <ResultButtons replayPath="/theme-selection" />
-      </div>
-    </div>
-  );
+                    {/* SOUS-TITRE : Taille adaptative (Mobile -> Tablette -> Desktop) */}
+                    <p
+                        className="text-white drop-shadow-lg mt-4 sm:mt-6
+                       text-4xl sm:text-5xl md:text-6xl lg:text-[70px]
+                       leading-tight"
+                        style={{ fontFamily: "'Jomhuria', cursive" }}
+                    >
+                        Vous avez obtenu le résultat de :
+                    </p>
+
+                    {/* SCORE : Taille adaptative massive */}
+                    <p
+                        className="drop-shadow-xl my-2
+                       text-8xl sm:text-9xl md:text-[150px] lg:text-[200px]
+                       leading-none"
+                        style={{
+                            fontFamily: "'Jomhuria', cursive",
+                            color: "#9AF76A",
+                        }}
+                    >
+                        {score}/{total}
+                    </p>
+
+                    {/* MESSAGE : Taille adaptative */}
+                    <p
+                        className="text-white drop-shadow-lg mb-8 sm:mb-10
+                       text-3xl sm:text-4xl md:text-5xl lg:text-[60px]
+                       leading-tight max-w-4xl"
+                        style={{ fontFamily: "'Jomhuria', cursive" }}
+                    >
+                        {getMessage()}
+                    </p>
+
+                    <div className="pb-8">
+                        <ResultButtons replayPath="/theme-selection" />
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    );
 };
 
 export default ClassicQuizzResults;

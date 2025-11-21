@@ -7,7 +7,7 @@ const BackButton: React.FC = () => {
   return (
     <button
       onClick={() => navigate(-1)}
-      className="absolute top-40 left-16 z-20 hover:scale-110 transition-transform"
+      className="absolute top-20 left-4 z-50 hover:scale-110 transition-transform"
     >
       <img
         src="https://img.icons8.com/ios-filled/100/arrow.png"

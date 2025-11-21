@@ -45,9 +45,8 @@ const ThemeSelection: React.FC = () => {
             />
 
             {/* BackButton (Absolu par dessus tout, Z-Index élevé) */}
-            <div className="absolute top-4 left-4 z-50">
+            
                 <BackButton />
-            </div>
 
             {/* Wrapper de contenu défilable (Z-Index 10 pour être au dessus de la vidéo) */}
             <div className="relative z-10 w-full h-full overflow-y-auto overflow-x-hidden flex flex-col items-center">
@@ -95,10 +94,12 @@ const ThemeSelection: React.FC = () => {
                                         className="text-white block drop-shadow-md"
                                         style={{
                                             fontFamily: "'Jomhuria', cursive",
-                                            textShadow: "2px 2px 4px rgba(0,0,0,1)"
+                                            textShadow: "2px 2px 4px rgba(0,0,0,1)",
+                                            
+                                            
                                         }}
                                     >
-                                        <span className="block text-3xl leading-none sm:text-4xl md:text-5xl lg:text-6xl xl:text-[70px] tracking-wide">
+                                        <span className="block text-3xl leading-10 sm:text-4xl md:text-5xl lg:text-6xl xl:text-[70px] tracking-wide">
                                             {c.name}
                                         </span>
                                     </span>

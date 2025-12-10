@@ -1,6 +1,5 @@
 import React from "react";
 import { useSearchParams } from "react-router-dom";
-import backgroundVideo from "../assets/Background_animated.mp4";
 
 import ResultButtons from "../components/result/ResultButtons";
 import ResultScore from "../components/result/ResultScore";
@@ -8,6 +7,7 @@ import ResultTitle from "../components/result/ResultTitle";
 import ResultText from "../components/result/ResultText";
 import ResultRecord from "../components/result/ResultRecord";
 import ResultMessageSuddenDeath from "../components/result/ResultMessageSuddenDeath";
+import Background from "../components/Background";
 
 const ResultsSuddenDeath: React.FC = () => {
   const [params] = useSearchParams();
@@ -16,13 +16,7 @@ const ResultsSuddenDeath: React.FC = () => {
   return (
     <div className="w-full h-[100dvh] relative bg-black overflow-hidden">
 
-      <video
-        src={backgroundVideo}
-        autoPlay
-        loop
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover"
-      />
+      <Background />
 
       <div className="absolute inset-0 bg-black/20" />
 

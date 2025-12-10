@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import BackButton from "../components/BackButton";
+import PageTitle from "../components/PageTitle";
 import ThemeGrid from "../components/ThemeGrid";
 import Background from "../components/Background";
 
@@ -22,13 +23,13 @@ const ThemeSelection: React.FC = () => {
 
             <BackButton />
 
-            <div className="relative z-10 w-full h-full overflow-y-auto flex flex-col items-center">
-                <h1
-                    className="text-white drop-shadow-xl text-center mt-20 mb-10"
-                    style={{ fontFamily: "'Jomhuria', cursive", fontSize: "120px" }}
-                >
-                    CHOISISSEZ UNE CATÉGORIE
-                </h1>
+            <div className="relative z-10 w-full h-full overflow-y-auto overflow-x-hidden flex flex-col items-center">
+
+                <div className="w-full flex justify-center mt-20 mb-10 px-4">
+                    <PageTitle variant="large">
+                        CHOISISSEZ UNE CATÉGORIE
+                    </PageTitle>
+                </div>
 
                 <ThemeGrid onSelect={handleSelectTheme} />
             </div>

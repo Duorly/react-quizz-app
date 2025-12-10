@@ -1,17 +1,11 @@
+import PageTitle from "../PageTitle";
+
 interface Props {
   text: string;
 }
 
 const ResultTitle: React.FC<Props> = ({ text }) => (
-  <h1
-    className="text-white drop-shadow-lg"
-    style={{
-      fontFamily: "'Jomhuria', cursive",
-      fontSize: "120px",
-    }}
-  >
-    {text}
-  </h1>
+  <PageTitle variant="small">{text}</PageTitle>
 );
 
 export default ResultTitle;

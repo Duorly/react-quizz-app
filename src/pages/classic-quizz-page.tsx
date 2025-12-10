@@ -50,13 +50,6 @@ const ClassicQuizPage: React.FC = () => {
     const [timeLeft, setTimeLeft] = useState(TOTAL_TIME);
     const hasFetched = useRef(false);
 
-    useEffect(() => {
-        const link = document.createElement("link");
-        link.href = "https://fonts.googleapis.com/css2?family=Jomhuria&display=swap";
-        link.rel = "stylesheet";
-        document.head.appendChild(link);
-    }, []);
-
     // --- NOUVELLE LOGIQUE DE CHARGEMENT ---
     const loadQuestions = useCallback(async () => {
         if (hasFetched.current) return;

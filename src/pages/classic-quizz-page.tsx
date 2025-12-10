@@ -6,13 +6,12 @@ import React, {
     useState,
 } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import backgroundVideo from "../assets/Background_animated.mp4";
-
 import QuizzAnswers from "../components/QuizzAnswers";
 import QuizzHeader from "../components/QuizzHeader";
 import QuizzQuestion from "../components/QuizzQuestion";
 import LoadingScreen from "../components/LoadingScreen";
-import { decodeHtml } from "../utils/decodeHtml";
+import {decodeHtml} from "../utils/decodeHtml";
+import Background from "../components/Background";
 
 interface ApiQuestion {
     category: string;
@@ -50,13 +49,6 @@ const ClassicQuizPage: React.FC = () => {
 
     const [timeLeft, setTimeLeft] = useState(TOTAL_TIME);
     const hasFetched = useRef(false);
-
-    useEffect(() => {
-        const link = document.createElement("link");
-        link.href = "https://fonts.googleapis.com/css2?family=Jomhuria&display=swap";
-        link.rel = "stylesheet";
-        document.head.appendChild(link);
-    }, []);
 
     // --- NOUVELLE LOGIQUE DE CHARGEMENT ---
     const loadQuestions = useCallback(async () => {
@@ -191,8 +183,7 @@ const ClassicQuizPage: React.FC = () => {
         return (
             <div
                 className="w-full h-[100dvh] relative flex flex-col items-center justify-center bg-black overflow-hidden px-4">
-                <video src={backgroundVideo} autoPlay loop muted playsInline
-                    className="absolute inset-0 w-full h-full object-cover opacity-30" />
+                    <Background />
                 <div
                     className="relative z-10 bg-gray-900/80 p-8 rounded-xl border border-red-500/50 text-center max-w-md">
                     <h2 className="text-red-400 text-3xl mb-4" style={{ fontFamily: "'Jomhuria', cursive" }}>Oups !</h2>
@@ -213,15 +204,8 @@ const ClassicQuizPage: React.FC = () => {
     return (
         <div className="w-full h-[100dvh] relative bg-black">
             {/* 1. La Vidéo reste en arrière-plan et ne bouge pas */}
-            <video
-                src={backgroundVideo}
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="absolute inset-0 w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-black/30" />
+                <Background />
+            <div className="absolute inset-0 bg-black/30"/>
 
             {/* 2. Le conteneur de défilement (Z-Index par dessus la vidéo) */}
             <div className="absolute inset-0 z-10 overflow-y-auto overflow-x-hidden">

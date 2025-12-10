@@ -1,16 +1,10 @@
-import React, {useEffect} from "react";
 import {useNavigate} from "react-router-dom";
-import backgroundVideo from "../assets/Background_animated.mp4";
+import Background from "../components/Background";
 
 const Homepage: React.FC = () => {
     const navigate = useNavigate();
 
-    useEffect(() => {
-        const link = document.createElement("link");
-        link.href = "https://fonts.googleapis.com/css2?family=Jomhuria&display=swap";
-        link.rel = "stylesheet";
-        document.head.appendChild(link);
-    }, []);
+   
 
     const handleClick = () => {
         navigate("/quizz-selection");
@@ -56,18 +50,8 @@ const Homepage: React.FC = () => {
                 }
             `}</style>
 
-            <div
-                className="w-screen h-screen overflow-hidden cursor-pointer relative"
-                onClick={handleClick}
-            >
-                <video
-                    src={backgroundVideo}
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="absolute inset-0 w-full h-full object-cover"
-                />
+          <div className="w-screen h-screen relative" onClick={handleClick}>
+            <Background />
 
                 <div className="absolute inset-0"/>
 

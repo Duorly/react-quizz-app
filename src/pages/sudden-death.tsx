@@ -1,11 +1,11 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import backgroundVideo from "../assets/Background_animated.mp4";
 
 import QuizzAnswers from "../components/QuizzAnswers";
 import QuizzHeader from "../components/QuizzHeader";
 import QuizzQuestion from "../components/QuizzQuestion";
 import { decodeHtml } from "../utils/decodeHtml";
+import Background from "../components/Background";
 
 interface ApiQuestion {
     category: string;
@@ -141,8 +141,7 @@ const SuddenDeathQuiz: React.FC = () => {
    if (loading) {
         return (
             <div className="w-full h-[100dvh] relative flex items-center justify-center bg-black overflow-hidden">
-                <video src={backgroundVideo} autoPlay loop muted playsInline
-                       className="absolute inset-0 w-full h-full object-cover opacity-50"/>
+                    <Background />
                 <div className="relative z-10 text-white text-4xl animate-pulse font-bold"
                      style={{fontFamily: "'Jomhuria', cursive"}}>
                     Chargement des questions...
@@ -155,14 +154,8 @@ const SuddenDeathQuiz: React.FC = () => {
 
     return (
         <div className="w-screen h-screen relative flex flex-col items-center py-10 px-6">
-            <video
-                src={backgroundVideo}
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="absolute inset-0 w-full h-full object-cover"
-            />
+            <Background />
+                
             <div className="absolute inset-0 bg-black/20" />
 
             <QuizzHeader

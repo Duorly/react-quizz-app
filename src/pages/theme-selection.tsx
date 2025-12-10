@@ -1,8 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import backgroundVideo from "../assets/Background_animated.mp4";
 import BackButton from "../components/BackButton";
-import ThemeGrid from "../components/themeGrid";
+import ThemeGrid from "../components/ThemeGrid";
+import Background from "../components/Background";
 
 const ThemeSelection: React.FC = () => {
     const navigate = useNavigate();
@@ -17,14 +17,8 @@ const ThemeSelection: React.FC = () => {
 
     return (
         <div className="w-screen h-screen relative overflow-hidden bg-black">
-            <video
-                src={backgroundVideo}
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="absolute inset-0 w-full h-full object-cover opacity-80"
-            />
+
+            <Background />
 
             <BackButton />
 

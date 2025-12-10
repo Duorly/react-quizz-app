@@ -4,6 +4,10 @@ import backgroundVideo from "../assets/Background_animated.mp4";
 
 import ResultButtons from "../components/result/ResultButtons";
 import ResultTitle from "../components/result/ResultTitle";
+import ResultText from "../components/result/ResultText";
+import ResultScoreClassic from "../components/result/ResultScoreClassic";
+import ResultMessage from "../components/result/ResultMessage";
+
 
 const ClassicQuizzResults: React.FC = () => {
     const [params] = useSearchParams();
@@ -21,10 +25,8 @@ const ClassicQuizzResults: React.FC = () => {
     };
 
     return (
-        // Container principal fixe (viewport height)
         <div className="w-full h-[100dvh] relative bg-black overflow-hidden">
 
-            {/* BACKGROUND VIDEO (Reste fixe) */}
             <video
                 src={backgroundVideo}
                 autoPlay
@@ -35,49 +37,19 @@ const ClassicQuizzResults: React.FC = () => {
             />
             <div className="absolute inset-0 bg-black/20" />
 
-            {/* ZONE DE CONTENU SCROLLABLE
-          C'est ici que la magie opère : si le contenu dépasse, on peut scroller
-      */}
+         
             <div className="absolute inset-0 z-10 overflow-y-auto overflow-x-hidden">
 
-                {/* Flex container : min-h-full assure le centrage vertical si possible,
-            mais permet l'extension si nécessaire */}
+                
                 <div className="min-h-full flex flex-col items-center justify-center py-10 px-4 text-center">
 
                     <ResultTitle text="Résultats" />
 
-                    {/* SOUS-TITRE : Taille adaptative (Mobile -> Tablette -> Desktop) */}
-                    <p
-                        className="text-white drop-shadow-lg mt-4 sm:mt-6
-                       text-4xl sm:text-5xl md:text-6xl lg:text-[70px]
-                       leading-tight"
-                        style={{ fontFamily: "'Jomhuria', cursive" }}
-                    >
-                        Vous avez obtenu le résultat de :
-                    </p>
+                    <ResultText  />
 
-                    {/* SCORE : Taille adaptative massive */}
-                    <p
-                        className="drop-shadow-xl my-2
-                       text-8xl sm:text-9xl md:text-[150px] lg:text-[200px]
-                       leading-none"
-                        style={{
-                            fontFamily: "'Jomhuria', cursive",
-                            color: "#9AF76A",
-                        }}
-                    >
-                        {score}/{total}
-                    </p>
+                    <ResultScoreClassic score={score} total={total} />
 
-                    {/* MESSAGE : Taille adaptative */}
-                    <p
-                        className="text-white drop-shadow-lg mb-8 sm:mb-10
-                       text-3xl sm:text-4xl md:text-5xl lg:text-[60px]
-                       leading-tight max-w-4xl"
-                        style={{ fontFamily: "'Jomhuria', cursive" }}
-                    >
-                        {getMessage()}
-                    </p>
+                    <ResultMessage message={getMessage()} />
 
                     <div className="pb-8">
                         <ResultButtons replayPath="/theme-selection" />

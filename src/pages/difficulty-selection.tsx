@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import backgroundVideo from "../assets/Background_animated.mp4";
 import BackButton from "../components/BackButton";
@@ -13,13 +12,6 @@ const DifficultySelection: React.FC = () => {
   const navigate = useNavigate();
   const [params] = useSearchParams();
   const theme = params.get("theme");
-
-  useEffect(() => {
-    const link = document.createElement("link");
-    link.href = "https://fonts.googleapis.com/css2?family=Jomhuria&display=swap";
-    link.rel = "stylesheet";
-    document.head.appendChild(link);
-  }, []);
 
     const handleDifficulty = (level: string) => {
         const queryTheme = theme && theme !== "null" ? `theme=${theme}&` : "";

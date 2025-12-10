@@ -16,13 +16,7 @@ const CountdownPage: React.FC = () => {
 
   useEffect(() => {
 
-    if (!document.getElementById('jomhuria-font')) {
-      const link = document.createElement('link');
-      link.id = 'jomhuria-font';
-      link.href = 'https://fonts.googleapis.com/css2?family=Jomhuria&display=swap';
-      link.rel = 'stylesheet';
-      document.head.appendChild(link);
-    }
+
 
     if (timeLeft <= 0) {
       if (mode === 'sudden-death') {

@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import BackButton from "../components/BackButton";
 import Background from "../components/Background";
@@ -14,14 +13,6 @@ const categories = [
 
 const ThemeSelection: React.FC = () => {
     const navigate = useNavigate();
-
-    useEffect(() => {
-        // Chargement de la police Jomhuria
-        const link = document.createElement("link");
-        link.href = "https://fonts.googleapis.com/css2?family=Jomhuria&display=swap";
-        link.rel = "stylesheet";
-        document.head.appendChild(link);
-    }, []);
 
     const handleSelectTheme = (id: number | string) => {
         if (id === "mix") {

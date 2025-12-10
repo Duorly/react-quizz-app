@@ -1,17 +1,8 @@
-import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Background from "../components/Background";
 
 const QuizzSelection: React.FC = () => {
     const navigate = useNavigate();
-
-    useEffect(() => {
-        const link = document.createElement("link");
-        link.href =
-            "https://fonts.googleapis.com/css2?family=Jomhuria&display=swap";
-        link.rel = "stylesheet";
-        document.head.appendChild(link);
-    }, []);
 
     return (
         <div className="w-screen h-screen relative">

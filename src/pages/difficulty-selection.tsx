@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import backgroundVideo from "../assets/Background_animated.mp4";
 import BackButton from "../components/BackButton";
+import PageTitle from "../components/PageTitle";
 
 const difficulties = [
   { level: "easy", label: "EASY", color: "#9CFF7E" },
@@ -43,19 +44,7 @@ const DifficultySelection: React.FC = () => {
             <BackButton />
 
             <div className="absolute top-6 sm:top-12 md:top-20 lg:top-32 xl:top-40 left-0 right-0 flex justify-center z-10 px-4">
-                <h1
-                    style={{
-                        fontFamily: "'Jomhuria', cursive",
-                    }}
-                    className="text-white drop-shadow-xl text-center
-                     text-3xl leading-7
-                     sm:text-4xl sm:leading-9
-                     md:text-5xl md:leading-[2.5rem]
-                     lg:text-6xl lg:leading-[3rem]
-                     xl:text-[140px] xl:leading-[70px]"
-                >
-                    CHOISISSEZ UNE DIFFICULTÉ
-                </h1>
+                <PageTitle variant="small">CHOISISSEZ UNE DIFFICULTÉ</PageTitle>
             </div>
 
             <div className="relative z-10 w-full h-full flex items-center justify-center px-4 pt-20 sm:pt-24 md:pt-28">

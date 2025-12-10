@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import backgroundVideo from "../assets/Background_animated.mp4";
 import BackButton from "../components/BackButton";
+import PageTitle from "../components/PageTitle";
 
 const categories = [
     { id: 9, name: "CULTURE GENERALE", image: "/themes/cultureG.webp" },
@@ -53,17 +54,7 @@ const ThemeSelection: React.FC = () => {
 
                 {/* Section Titre : Marges adaptatives pour éviter le chevauchement avec le bouton retour */}
                 <div className="w-full flex justify-center mt-16 sm:mt-12 md:mt-16 lg:mt-20 mb-6 sm:mb-8 px-4">
-                    <h1
-                        style={{ fontFamily: "'Jomhuria', cursive" }}
-                        className="text-white drop-shadow-xl text-center
-                                   text-5xl leading-[0.8]
-                                   sm:text-6xl sm:leading-[0.8]
-                                   md:text-7xl md:leading-[0.9]
-                                   lg:text-8xl lg:leading-[1]
-                                   xl:text-[130px] xl:leading-[0.8]"
-                    >
-                        CHOISISSEZ UNE CATÉGORIE
-                    </h1>
+                    <PageTitle variant="large">CHOISISSEZ UNE CATÉGORIE</PageTitle>
                 </div>
 
                 {/* Section Grille */}

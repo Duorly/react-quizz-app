@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import backgroundVideo from "../assets/Background_animated.mp4";
+import PageTitle from "../components/PageTitle";
 
 const QuizzSelection: React.FC = () => {
     const navigate = useNavigate();
@@ -26,19 +27,7 @@ const QuizzSelection: React.FC = () => {
             <div className="absolute inset-0" />
 
             <div className="absolute top-8 sm:top-16 md:top-24 lg:top-32 xl:top-40 left-0 right-0 flex justify-center z-10 px-4">
-                <h1
-                    style={{
-                        fontFamily: "'Jomhuria', cursive",
-                    }}
-                    className="text-white drop-shadow-xl text-center
-                     text-4xl leading-8
-                     sm:text-5xl sm:leading-10
-                     md:text-6xl md:leading-[3rem]
-                     lg:text-7xl lg:leading-[3.5rem]
-                     xl:text-[140px] xl:leading-[70px]"
-                >
-                    CHOISISSEZ VOTRE QUIZZ
-                </h1>
+                <PageTitle variant="medium">CHOISISSEZ VOTRE QUIZZ</PageTitle>
             </div>
 
             <div className="relative z-10 w-full h-full flex items-center justify-center px-4">

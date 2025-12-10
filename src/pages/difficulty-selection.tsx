@@ -1,25 +1,25 @@
 import React, { useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import backgroundVideo from "../assets/Background_animated.mp4";
 import BackButton from "../components/BackButton";
+import Background from "../components/Background";
 
 const difficulties = [
-  { level: "easy", label: "EASY", color: "#9CFF7E" },
-  { level: "medium", label: "MEDIUM", color: "#FFBD7B" },
-  { level: "hard", label: "EXPERT", color: "#DB5D5D" },
+    { level: "easy", label: "EASY", color: "#9CFF7E" },
+    { level: "medium", label: "MEDIUM", color: "#FFBD7B" },
+    { level: "hard", label: "EXPERT", color: "#DB5D5D" },
 ];
 
 const DifficultySelection: React.FC = () => {
-  const navigate = useNavigate();
-  const [params] = useSearchParams();
-  const theme = params.get("theme");
+    const navigate = useNavigate();
+    const [params] = useSearchParams();
+    const theme = params.get("theme");
 
-  useEffect(() => {
-    const link = document.createElement("link");
-    link.href = "https://fonts.googleapis.com/css2?family=Jomhuria&display=swap";
-    link.rel = "stylesheet";
-    document.head.appendChild(link);
-  }, []);
+    useEffect(() => {
+        const link = document.createElement("link");
+        link.href = "https://fonts.googleapis.com/css2?family=Jomhuria&display=swap";
+        link.rel = "stylesheet";
+        document.head.appendChild(link);
+    }, []);
 
     const handleDifficulty = (level: string) => {
         const queryTheme = theme && theme !== "null" ? `theme=${theme}&` : "";
@@ -28,15 +28,8 @@ const DifficultySelection: React.FC = () => {
     };
 
     return (
-        <div className="w-screen h-screen relative overflow-hidden">
-            <video
-                src={backgroundVideo}
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="absolute inset-0 w-full h-full object-cover"
-            />
+        <div className="w-screen h-screen relative">
+            <Background />
 
             <div className="absolute inset-0 bg-black/20" />
 
@@ -77,10 +70,10 @@ const DifficultySelection: React.FC = () => {
                                 boxShadow: "0px 6px 14px rgba(0,0,0,0.5)",
                             }}
                         >
-              <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[70px]"
-                    style={{ letterSpacing: "2px" }}>
-                {d.label}
-              </span>
+                            <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[70px]"
+                                style={{ letterSpacing: "2px" }}>
+                                {d.label}
+                            </span>
                         </button>
                     ))}
                 </div>

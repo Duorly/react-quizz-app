@@ -12,6 +12,7 @@ import QuizzAnswers from "../components/QuizzAnswers";
 import QuizzHeader from "../components/QuizzHeader";
 import QuizzQuestion from "../components/QuizzQuestion";
 import {decodeHtml} from "../utils/decodeHtml";
+import Background from "../components/Background";
 
 interface ApiQuestion {
     category: string;
@@ -178,8 +179,7 @@ const ClassicQuizPage: React.FC = () => {
     if (loading) {
         return (
             <div className="w-full h-[100dvh] relative flex items-center justify-center bg-black overflow-hidden">
-                <video src={backgroundVideo} autoPlay loop muted playsInline
-                       className="absolute inset-0 w-full h-full object-cover opacity-50"/>
+                    <Background />
                 <div className="relative z-10 text-white text-4xl animate-pulse font-bold"
                      style={{fontFamily: "'Jomhuria', cursive"}}>
                     Chargement des questions...
@@ -192,8 +192,7 @@ const ClassicQuizPage: React.FC = () => {
         return (
             <div
                 className="w-full h-[100dvh] relative flex flex-col items-center justify-center bg-black overflow-hidden px-4">
-                <video src={backgroundVideo} autoPlay loop muted playsInline
-                       className="absolute inset-0 w-full h-full object-cover opacity-30"/>
+                    <Background />
                 <div
                     className="relative z-10 bg-gray-900/80 p-8 rounded-xl border border-red-500/50 text-center max-w-md">
                     <h2 className="text-red-400 text-3xl mb-4" style={{fontFamily: "'Jomhuria', cursive"}}>Oups !</h2>
@@ -214,14 +213,7 @@ const ClassicQuizPage: React.FC = () => {
     return (
         <div className="w-full h-[100dvh] relative bg-black">
             {/* 1. La Vidéo reste en arrière-plan et ne bouge pas */}
-            <video
-                src={backgroundVideo}
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="absolute inset-0 w-full h-full object-cover"
-            />
+                <Background />
             <div className="absolute inset-0 bg-black/30"/>
 
             {/* 2. Le conteneur de défilement (Z-Index par dessus la vidéo) */}

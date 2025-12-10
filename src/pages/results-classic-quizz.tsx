@@ -1,9 +1,9 @@
 import React from "react";
 import { useSearchParams } from "react-router-dom";
-import backgroundVideo from "../assets/Background_animated.mp4";
 
 import ResultButtons from "../components/result/ResultButtons";
 import ResultTitle from "../components/result/ResultTitle";
+import Background from "../components/Background";
 
 const ClassicQuizzResults: React.FC = () => {
     const [params] = useSearchParams();
@@ -23,16 +23,8 @@ const ClassicQuizzResults: React.FC = () => {
     return (
         // Container principal fixe (viewport height)
         <div className="w-full h-[100dvh] relative bg-black overflow-hidden">
-
             {/* BACKGROUND VIDEO (Reste fixe) */}
-            <video
-                src={backgroundVideo}
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="absolute inset-0 w-full h-full object-cover"
-            />
+            <Background />
             <div className="absolute inset-0 bg-black/20" />
 
             {/* ZONE DE CONTENU SCROLLABLE

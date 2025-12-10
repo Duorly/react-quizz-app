@@ -1,87 +1,54 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useSearchParams } from "react-router-dom";
 
 import ResultButtons from "../components/result/ResultButtons";
 import ResultScore from "../components/result/ResultScore";
 import ResultTitle from "../components/result/ResultTitle";
+import ResultText from "../components/result/ResultText";
+import ResultRecord from "../components/result/ResultRecord";
+import ResultMessageSuddenDeath from "../components/result/ResultMessageSuddenDeath";
 import Background from "../components/Background";
 
 const ResultsSuddenDeath: React.FC = () => {
-    const [params] = useSearchParams();
-    const score = Number(params.get("score")) || 0;
+  const [params] = useSearchParams();
+  const score = Number(params.get("score")) || 0;
 
-    const [record, setRecord] = useState(0);
+  return (
+    <div className="w-full h-[100dvh] relative bg-black overflow-hidden">
 
-    useEffect(() => {
-        // Récupération et mise à jour du record local
-        const best = Number(localStorage.getItem("bestSuddenDeath") || "0");
-        if (score > best) {
-            localStorage.setItem("bestSuddenDeath", String(score));
-            setRecord(score);
-        } else {
-            setRecord(best);
-        }
-    }, [score]);
+      <Background />
 
-    const getMessage = () => {
-        // Si c'est un record et que le score n'est pas 0
-        if (score > Number(localStorage.getItem("bestSuddenDeath") || "0") && score !== 0) {
-            return "C'est un nouveau record bravo !";
-        }
-        // Note: La logique ci-dessus peut être simplifiée selon tes besoins,
-        // car le useEffect met déjà à jour le localStorage avant l'affichage parfois.
-        // Voici une logique basée sur le score brut :
+      <div className="absolute inset-0 bg-black/20" />
 
-        if (score === record && score !== 0) return "C'est un nouveau record bravo !";
-        if (score < 10) return "Allez, tu peux faire mieux !";
-        if (score < 20) return "Pas mal du tout !";
-        if (score < 40) return "C'est un très bon score !";
-        return "Incroyable performance !";
-    };
+      <div className="absolute inset-0 z-10 overflow-y-auto overflow-x-hidden">
+        <div className="min-h-full flex flex-col items-center justify-center py-10 px-4 text-center">
 
-    return (
-        // Container Principal : Fixe la vue à l'écran, arrière-plan noir
-        <div className="w-full h-[100dvh] relative bg-black overflow-hidden">
+          <ResultTitle text="MORT SUBITE" />
 
-            {/* Vidéo d'arrière-plan (Fixe, ne scrolle pas) */}
-                <Background />
+          <ResultText />
 
-            {/* Overlay sombre pour améliorer la lisibilité */}
-            <div className="absolute inset-0 bg-black/20" />
+          <ResultRecord score={score} storageKey="bestSuddenDeath">
+            {({ record, isNewRecord }) => (
+              <div className="w-full flex flex-col items-center my-4">
+                
+                <ResultScore score={score} record={record} />
+                
+                <ResultMessageSuddenDeath
+                  score={score}
+                  isNewRecord={isNewRecord}
+                />
+              </div>
+            )}
+          </ResultRecord>
 
-            {/* Wrapper de contenu SCROLLABLE (Z-Index par dessus la vidéo) */}
-            <div className="absolute inset-0 z-10 overflow-y-auto overflow-x-hidden">
+          <div className="mt-6 pb-8">
+            <ResultButtons replayPath="/sudden-death" />
+          </div>
 
-                {/* Flex Container : Centre le contenu verticalement si possible,
-            mais s'étend (min-h-full) si le contenu est trop grand */}
-                <div className="min-h-full flex flex-col items-center justify-center py-10 px-4 text-center">
-
-                    <ResultTitle text="MORT SUBITE" />
-
-                    {/* Phrase d'intro : Taille adaptative */}
-                    <p
-                        className="text-white drop-shadow-lg mt-4 mb-2
-                       text-3xl sm:text-5xl md:text-6xl lg:text-[70px]
-                       leading-tight max-w-4xl mx-auto"
-                        style={{ fontFamily: "'Jomhuria', cursive" }}
-                    >
-                        Voici le nombre de points que vous avez obtenu :
-                    </p>
-
-                    {/* Le composant Score (Score + Record + Message) */}
-                    <div className="w-full flex justify-center my-4">
-                        <ResultScore score={score} record={record} message={getMessage()} />
-                    </div>
-
-                    {/* Boutons d'action (Rejouer / Accueil) */}
-                    <div className="mt-6 pb-8">
-                        <ResultButtons replayPath="/sudden-death" />
-                    </div>
-
-                </div>
-            </div>
         </div>
-    );
+      </div>
+    </div>
+  );
 };
 
 export default ResultsSuddenDeath;

@@ -1,6 +1,7 @@
 import React, {useEffect} from "react";
 import {useNavigate} from "react-router-dom";
 import backgroundVideo from "../assets/Background_animated.mp4";
+import PageTitle from "../components/PageTitle";
 
 const Homepage: React.FC = () => {
     const navigate = useNavigate();
@@ -78,21 +79,11 @@ const Homepage: React.FC = () => {
                         className="w-32 sm:w-40 md:w-48 lg:w-56 xl:w-64 mb-4 sm:mb-6 md:mb-8 lg:mb-10 drop-shadow-lg filter invert brightness-0"
                     />
 
-                    <h1
-                        style={{
-                            fontFamily: "'Jomhuria', cursive",
-                        }}
-                        className="text-white drop-shadow-xl pulse-letters
-                                   text-5xl leading-10
-                                   sm:text-6xl sm:leading-[3rem]
-                                   md:text-7xl md:leading-[4rem]
-                                   lg:text-8xl lg:leading-[5rem]
-                                   xl:text-[153px] xl:leading-[99px]"
-                    >
+                    <PageTitle variant="large" className="pulse-letters">
                         CLIQUEZ POUR
                         <br/>
                         COMMENCER !
-                    </h1>
+                    </PageTitle>
                 </div>
             </div>
         </>

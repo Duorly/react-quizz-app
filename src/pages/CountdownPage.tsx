@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import backgroundVideo from "../assets/Background_animated.mp4";
+import PageTitle from "../components/PageTitle";
 
 
 const CountdownPage: React.FC = () => {
@@ -59,16 +60,7 @@ const CountdownPage: React.FC = () => {
         zIndex: 1
       }}>
         <div className="absolute top-40 left-0 right-0 flex justify-center z-10">
-          <h1
-            style={{
-              fontFamily: "'Jomhuria', cursive",
-              fontSize: "140px",
-              lineHeight: "70px",
-            }}
-            className="text-white drop-shadow-xl"
-          >
-            VOTRE QUIZZ VA DEBUTER ...
-          </h1>
+          <PageTitle variant="medium">VOTRE QUIZZ VA DEBUTER ...</PageTitle>
         </div>
         <div style={{
           fontFamily: "'Jomhuria', cursive",

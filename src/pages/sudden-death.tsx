@@ -5,6 +5,7 @@ import backgroundVideo from "../assets/Background_animated.mp4";
 import QuizzAnswers from "../components/QuizzAnswers";
 import QuizzHeader from "../components/QuizzHeader";
 import QuizzQuestion from "../components/QuizzQuestion";
+import LoadingScreen from "../components/LoadingScreen";
 import { decodeHtml } from "../utils/decodeHtml";
 
 interface ApiQuestion {
@@ -138,17 +139,8 @@ const SuddenDeathQuiz: React.FC = () => {
         }, 1000);
     };
 
-   if (loading) {
-        return (
-            <div className="w-full h-[100dvh] relative flex items-center justify-center bg-black overflow-hidden">
-                <video src={backgroundVideo} autoPlay loop muted playsInline
-                       className="absolute inset-0 w-full h-full object-cover opacity-50"/>
-                <div className="relative z-10 text-white text-4xl animate-pulse font-bold"
-                     style={{fontFamily: "'Jomhuria', cursive"}}>
-                    Chargement des questions...
-                </div>
-            </div>
-        );
+    if (loading) {
+        return <LoadingScreen />;
     }
 
     const currentQuestion = questions[currentIndex];

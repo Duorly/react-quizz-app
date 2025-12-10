@@ -1,26 +1,19 @@
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import BackButton from "../components/BackButton";
 import PageTitle from "../components/PageTitle";
+import ThemeGrid from "../components/ThemeGrid";
 import Background from "../components/Background";
-
-const categories = [
-    { id: 9, name: "CULTURE GENERALE", image: "/themes/cultureG.webp" },
-    { id: 23, name: "HISTOIRE", image: "/themes/histoire.webp" },
-    { id: 11, name: "FILMS", image: "/themes/films.webp" },
-    { id: 21, name: "SPORTS", image: "/themes/KyllianMbappe.webp" },
-    { id: 17, name: "SCIENCES & NATURE", image: "/themes/svt.webp" },
-    { id: "mix", name: "MIX", image: "/themes/mix.webp" }
-];
 
 const ThemeSelection: React.FC = () => {
     const navigate = useNavigate();
 
     const handleSelectTheme = (id: number | string) => {
-        if (id === "mix") {
-            navigate(`/difficulty-selection`);
-        } else {
-            navigate(`/difficulty-selection?theme=${id}`);
-        }
+        navigate(
+            id === "mix"
+                ? "/difficulty-selection"
+                : `/difficulty-selection?theme=${id}`
+        );
     };
 
     return (
@@ -41,48 +34,17 @@ const ThemeSelection: React.FC = () => {
                     <PageTitle variant="large">CHOISISSEZ UNE CATÉGORIE</PageTitle>
                 </div>
 
-                {/* Section Grille */}
-                <div className="w-full max-w-7xl px-4 sm:px-8 md:px-12 lg:px-16 pb-10">
-                    <div className="grid grid-cols-2 md:grid-cols-3
-                                    gap-3 sm:gap-6 md:gap-8 lg:gap-10 xl:gap-12">
-                        {categories.map((c) => (
-                            <button
-                                key={c.id}
-                                onClick={() => handleSelectTheme(c.id)}
-                                className="group relative w-full aspect-square rounded-xl overflow-hidden shadow-2xl
-                                           transform transition-all duration-300 ease-out
-                                           hover:scale-105 active:scale-95 hover:shadow-blue-500/20 border border-white/10"
-                            >
-                                {/* Image de la catégorie */}
-                                <img
-                                    src={c.image}
-                                    alt={c.name}
-                                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                                />
+            <BackButton />
 
-                                {/* Overlay sombre pour lisibilité */}
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+            <div className="relative z-10 w-full h-full overflow-y-auto flex flex-col items-center">
+                <h1
+                    className="text-white drop-shadow-xl text-center mt-20 mb-10"
+                    style={{ fontFamily: "'Jomhuria', cursive", fontSize: "120px" }}
+                >
+                    CHOISISSEZ UNE CATÉGORIE
+                </h1>
 
-                                {/* Titre de la catégorie */}
-                                <div className="absolute bottom-0 left-0 right-0 p-2 sm:p-4 text-center">
-                                    <span
-                                        className="text-white block drop-shadow-md"
-                                        style={{
-                                            fontFamily: "'Jomhuria', cursive",
-                                            textShadow: "2px 2px 4px rgba(0,0,0,1)",
-                                            
-                                            
-                                        }}
-                                    >
-                                        <span className="block text-3xl leading-10 sm:text-4xl md:text-5xl lg:text-6xl xl:text-[70px] tracking-wide">
-                                            {c.name}
-                                        </span>
-                                    </span>
-                                </div>
-                            </button>
-                        ))}
-                    </div>
-                </div>
+                <ThemeGrid onSelect={handleSelectTheme} />
             </div>
         </div>
     );

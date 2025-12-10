@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import PageTitle from "../components/PageTitle";
+import { QuizzSelectionButton } from "../components/QuizzSelectionButton";
 import Background from "../components/Background";
 
 const QuizzSelection: React.FC = () => {
@@ -16,33 +17,18 @@ const QuizzSelection: React.FC = () => {
 
             <div className="relative z-10 w-full h-full flex items-center justify-center px-4">
                 <div className="flex flex-col sm:flex-row gap-6 sm:gap-8 md:gap-12 lg:gap-16 xl:gap-24 mt-12 sm:mt-16 md:mt-20 w-full max-w-6xl">
-                    <button
-                        onClick={() => navigate("/theme-selection")}
-                        className="w-full sm:w-auto flex-1 px-8 sm:px-12 md:px-16 lg:px-20 xl:px-32
-                       py-4 sm:py-5 md:py-6
-                       bg-gray-200 text-black rounded shadow-lg
-                       hover:scale-105 active:scale-95 transition-transform
-                       text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[80px]"
-                        style={{
-                            fontFamily: "'Jomhuria', cursive",
-                        }}
-                    >
-                        CLASSIQUE
-                    </button>
-
-                    <button
+                    <QuizzSelectionButton
+                        label="MORT SUBITE"
                         onClick={() => navigate("/countdown?mode=sudden-death")}
-                        className="w-full sm:w-auto flex-1 px-8 sm:px-12 md:px-16 lg:px-20 xl:px-32
-                       py-4 sm:py-5 md:py-6
-                       bg-black text-white rounded shadow-lg
-                       hover:scale-105 active:scale-95 transition-transform
-                       text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[80px]"
-                        style={{
-                            fontFamily: "'Jomhuria', cursive",
-                        }}
-                    >
-                        MORT SUBITE
-                    </button>
+                        bgColorClass="bg-black"
+                        textColorClass="text-white"
+                    />
+                    <QuizzSelectionButton
+                        label="CLASSIQUE"
+                        onClick={() => navigate("/theme-selection")}
+                        bgColorClass="bg-gray-200"
+                        textColorClass="text-black"
+                    />
                 </div>
             </div>
         </div>

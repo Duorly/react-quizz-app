@@ -5,12 +5,11 @@ import React, {
     useRef,
     useState,
 } from "react";
-import {useNavigate, useSearchParams} from "react-router-dom";
-import backgroundVideo from "../assets/Background_animated.mp4";
-
+import { useNavigate, useSearchParams } from "react-router-dom";
 import QuizzAnswers from "../components/QuizzAnswers";
 import QuizzHeader from "../components/QuizzHeader";
 import QuizzQuestion from "../components/QuizzQuestion";
+import LoadingScreen from "../components/LoadingScreen";
 import {decodeHtml} from "../utils/decodeHtml";
 import Background from "../components/Background";
 
@@ -177,15 +176,7 @@ const ClassicQuizPage: React.FC = () => {
     // --- AFFICHAGE DES ERREURS ET DU CHARGEMENT ---
 
     if (loading) {
-        return (
-            <div className="w-full h-[100dvh] relative flex items-center justify-center bg-black overflow-hidden">
-                    <Background />
-                <div className="relative z-10 text-white text-4xl animate-pulse font-bold"
-                     style={{fontFamily: "'Jomhuria', cursive"}}>
-                    Chargement des questions...
-                </div>
-            </div>
-        );
+        return <LoadingScreen />;
     }
 
     if (error) {
@@ -195,7 +186,7 @@ const ClassicQuizPage: React.FC = () => {
                     <Background />
                 <div
                     className="relative z-10 bg-gray-900/80 p-8 rounded-xl border border-red-500/50 text-center max-w-md">
-                    <h2 className="text-red-400 text-3xl mb-4" style={{fontFamily: "'Jomhuria', cursive"}}>Oups !</h2>
+                    <h2 className="text-red-400 text-3xl mb-4" style={{ fontFamily: "'Jomhuria', cursive" }}>Oups !</h2>
                     <p className="text-white mb-6">{error}</p>
                     <button
                         onClick={() => window.location.reload()}
@@ -233,7 +224,7 @@ const ClassicQuizPage: React.FC = () => {
 
                     <div className="flex-grow flex items-center justify-center py-4">
                         <div className="w-full">
-                            <QuizzQuestion text={currentQuestion.question}/>
+                            <QuizzQuestion text={currentQuestion.question} />
                         </div>
                     </div>
 

@@ -1,8 +1,8 @@
 
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
-import backgroundVideo from "../assets/Background_animated.mp4";
 import PageTitle from "../components/PageTitle";
+import Background from '../components/Background';
 
 
 const CountdownPage: React.FC = () => {
@@ -17,13 +17,7 @@ const CountdownPage: React.FC = () => {
 
   useEffect(() => {
 
-    if (!document.getElementById('jomhuria-font')) {
-      const link = document.createElement('link');
-      link.id = 'jomhuria-font';
-      link.href = 'https://fonts.googleapis.com/css2?family=Jomhuria&display=swap';
-      link.rel = 'stylesheet';
-      document.head.appendChild(link);
-    }
+
 
     if (timeLeft <= 0) {
       if (mode === 'sudden-death') {
@@ -41,15 +35,8 @@ const CountdownPage: React.FC = () => {
   }, [timeLeft, navigate, theme, difficulty, mode]);
 
   return (
-    <div>
-      <video
-        src={backgroundVideo}
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover"
-      />
+   <div className="w-screen h-screen relative">
+    <Background />
       <div style={{
         display: 'flex',
         flexDirection: 'column',

@@ -1,29 +1,13 @@
-import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import backgroundVideo from "../assets/Background_animated.mp4";
 import PageTitle from "../components/PageTitle";
+import Background from "../components/Background";
 
 const QuizzSelection: React.FC = () => {
     const navigate = useNavigate();
 
-    useEffect(() => {
-        const link = document.createElement("link");
-        link.href =
-            "https://fonts.googleapis.com/css2?family=Jomhuria&display=swap";
-        link.rel = "stylesheet";
-        document.head.appendChild(link);
-    }, []);
-
     return (
-        <div className="w-screen h-screen relative overflow-hidden">
-            <video
-                src={backgroundVideo}
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="absolute inset-0 w-full h-full object-cover"
-            />
+        <div className="w-screen h-screen relative">
+            <Background />
             <div className="absolute inset-0" />
 
             <div className="absolute top-8 sm:top-16 md:top-24 lg:top-32 xl:top-40 left-0 right-0 flex justify-center z-10 px-4">

@@ -18,16 +18,16 @@ const QuizzSelection: React.FC = () => {
             <div className="relative z-10 w-full h-full flex items-center justify-center px-4">
                 <div className="flex flex-col sm:flex-row gap-6 sm:gap-8 md:gap-12 lg:gap-16 xl:gap-24 mt-12 sm:mt-16 md:mt-20 w-full max-w-6xl">
                     <QuizzSelectionButton
-                        label="MORT SUBITE"
-                        onClick={() => navigate("/countdown?mode=sudden-death")}
-                        bgColorClass="bg-black"
-                        textColorClass="text-white"
-                    />
-                    <QuizzSelectionButton
                         label="CLASSIQUE"
                         onClick={() => navigate("/theme-selection")}
                         bgColorClass="bg-gray-200"
                         textColorClass="text-black"
+                    />
+                    <QuizzSelectionButton
+                        label="MORT SUBITE"
+                        onClick={() => navigate("/countdown?mode=sudden-death")}
+                        bgColorClass="bg-black"
+                        textColorClass="text-white"
                     />
                 </div>
             </div>
